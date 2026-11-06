@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4d3a'/%3E%3Cpath d='M16 4l-7 10h4l-5 7h5l-3 5h12l-3-5h5l-5-7h4z' fill='%23eef0ea'/%3E%3Crect x='14.5' y='25' width='3' height='4' fill='%23eef0ea'/%3E%3C/svg%3E">
   <!-- Bump ?v= whenever css or js changes, so browsers don't pair a new page with cached old files. -->
   <link rel="stylesheet" href="css/styles.css?v=1">
-  <link rel="stylesheet" href="css/forestry.css?v=1">
+  <link rel="stylesheet" href="css/forestry.css?v=3">
 </head>
 <body>
 
@@ -92,8 +92,9 @@
         <div class="fit-row" role="row">
           <div class="req" role="cell">Image interpretation and remote sensing</div>
           <div class="ev" role="cell">Completed the Natural Resources Canada <i>Fundamentals of Remote Sensing</i>
-            tutorial. Built a computer vision prototype that detects, tracks and classifies objects from video
-            frames and scores itself against ground truth. <a href="#p-vision">Lift Vision Lab →</a></div>
+            tutorial. Built a computer vision lab that detects, tracks and classifies objects in video, first
+            with hand-built pixel rules, then with a TensorFlow neural network on real footage, and scores the
+            results against ground truth. <a href="#p-vision">Lift Vision Lab →</a></div>
           <div role="cell"><span class="pill building">Building</span></div>
         </div>
 
@@ -244,35 +245,53 @@
 
         <article class="project" id="p-vision">
           <div>
-            <span class="tag">Computer vision · Image analysis · Personal project</span>
+            <span class="tag">Computer vision · Deep learning · Personal project</span>
             <h3>Lift Vision Lab</h3>
-            <p class="muted">A browser-only computer vision prototype that detects, tracks and classifies riders on
-              a chairlift from video frames, then scores itself against ground truth.</p>
-            <ul class="chips"><li>JavaScript</li><li>Canvas pixel analysis</li><li>Object tracking</li><li>Precision / recall</li><li>Human review loop</li></ul>
+            <p class="muted">A browser-only computer vision lab in two versions. V1 counts and classifies riders
+              in synthetic footage with hand-built pixel analysis and scores itself against ground truth. V2 runs
+              a pretrained TensorFlow neural network on real chairlift video, frame by frame, and counts the
+              people it tracks.</p>
+            <ul class="chips"><li>TensorFlow.js</li><li>COCO-SSD object detection</li><li>Real video analysis</li><li>Multi-object tracking</li><li>Canvas pixel analysis</li><li>Precision / recall</li><li>Human review loop</li></ul>
             <div class="cta">
-              <a class="btn primary" href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener">Try the demo ↗</a>
+              <a class="btn primary" href="https://searchmont-analytics.github.io/Lift_vision_lab/v2.html" target="_blank" rel="noopener">Try V2: real footage ↗</a>
+              <a class="btn" href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener">V1: synthetic demo ↗</a>
               <a class="btn" href="https://github.com/searchmont-analytics/Lift_vision_lab" target="_blank" rel="noopener">View source</a>
             </div>
           </div>
           <dl>
             <div><dt>Problem</dt><dd>Counting and classifying what a camera sees, reliably enough to report on,
               without hiding where the method fails.</dd></div>
-            <div><dt>Approach</dt><dd>Reads rendered frame pixels, extracts connected dark silhouettes inside an
-              analysis band, links detections over time into tracks and counts each one once as it clears a gate.
-              Silhouette geometry gives an equipment class, a colour cue flags patrol. A reviewer can correct a label
-              or reject a false count; raw metrics still reflect the original detections.</dd></div>
-            <div><dt>Evaluation</dt><dd>Events are matched one-to-one against ground truth within 0.5 s and 18 px.
-              Baseline: 12 of 12, 100% precision and recall. Stress scenario with snow, occlusion and low contrast:
-              100% precision, 83.3% recall, with each miss explained. The README sets out a pilot plan with
-              independent second-reviewer labelling, held-out footage and acceptance gates.</dd></div>
+            <div><dt>V1: rules on synthetic frames</dt><dd>Reads rendered frame pixels, extracts connected dark
+              silhouettes inside an analysis band, links detections into tracks and counts each one once as it
+              clears a gate. Silhouette geometry gives an equipment class and a colour cue flags patrol. Events are
+              matched one-to-one against ground truth within 0.5 s and 18 px. Baseline: 12 of 12, 100% precision
+              and recall. Stress scenario with snow, occlusion and low contrast: 100% precision, 83.3% recall, with
+              each miss explained.</dd></div>
+            <div><dt>V2: neural network on real footage</dt><dd>Loads TensorFlow.js and the COCO-SSD detector in
+              the browser and samples the video every 0.2 s. Person detections inside a user-drawn region of
+              interest are linked into tracks with a velocity-predicted nearest-neighbour match. Each track is
+              counted once after three detections, or as it crosses a configurable gate. Coat colour is estimated
+              from the upper body by majority vote across frames. On the 15-skier sample clip it counted 14,
+              and the summary reports the difference from the manual count rather than hiding it.</dd></div>
+            <div><dt>Review and honesty</dt><dd>In both versions a reviewer can open any event's frame, accept or
+              reject the count, correct labels and export CSV. The page states the known failure modes: long
+              occlusion can split one person into two tracks, and a person detection may be a bystander. All
+              processing stays on the device. The README sets out a pilot plan with independent second-reviewer
+              labelling, held-out footage and acceptance gates.</dd></div>
             <div><dt>Why it matters here</dt><dd>The same disciplines apply to feature extraction from imagery:
-              define the class, measure it against reviewed truth, report precision and recall by condition, and
-              keep a human in the loop for the uncertain cases.</dd></div>
+              pick a pretrained model or hand-built rule, define the class, measure it against reviewed truth,
+              report precision and recall by condition, and keep a human in the loop for the uncertain cases.</dd></div>
           </dl>
-          <figure class="shot plain">
-            <a href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener"><img src="img/lift-vision-lab.png" alt="Lift Vision Lab running the baseline sample: chairs move left to right past a vertical gate line, with detected riders boxed and labelled skier, snowboarder, adaptive and unknown" loading="lazy" width="600" height="500"></a>
-            <figcaption>Baseline sample mid-run: tracked riders, class labels and the counting gate.</figcaption>
-          </figure>
+          <div class="shot-pair">
+            <figure class="shot plain">
+              <a href="https://searchmont-analytics.github.io/Lift_vision_lab/v2.html" target="_blank" rel="noopener"><img src="img/lift-vision-v2.webp" alt="Lift Vision Lab V2 on real chairlift footage: four skiers unloading, each boxed by the COCO-SSD detector with person confidence between 92 and 97 percent" loading="lazy" width="600" height="500"></a>
+              <figcaption>V2 on real footage: the TensorFlow.js detector boxes four unloading riders at 92–97% confidence.</figcaption>
+            </figure>
+            <figure class="shot plain">
+              <a href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener"><img src="img/lift-vision-lab.png" alt="Lift Vision Lab V1 running the baseline synthetic sample: chairs move left to right past a vertical gate line, with detected riders boxed and labelled skier, snowboarder, adaptive and unknown" loading="lazy" width="600" height="500"></a>
+              <figcaption>V1 on synthetic footage: tracked riders, class labels and the counting gate.</figcaption>
+            </figure>
+          </div>
         </article>
 
       </div>

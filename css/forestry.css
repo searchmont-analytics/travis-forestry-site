@@ -58,3 +58,8 @@
 .honest b { color: var(--text); }
 
 .shot.plain img { max-height: 520px; object-fit: contain; background: var(--surface-2); }
+
+/* Two screenshots side by side (Lift Vision Lab V2 + V1) */
+.shot-pair { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.shot-pair .shot { grid-column: auto; }
+@media (max-width: 700px) { .shot-pair { grid-template-columns: 1fr; } }
