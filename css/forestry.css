@@ -79,3 +79,9 @@
 .water-badge .water-drop { fill: color-mix(in srgb, currentColor 30%, transparent); stroke: currentColor; stroke-width: 1.6; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .water-badge { color: #6aa5ff; } }
 :root[data-theme="dark"] .water-badge { color: #6aa5ff; }
+
+/* Lift Vision Lab badge */
+.lift-badge { color: #4b5f73; }
+.lift-badge .lift-rider { fill: currentColor; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lift-badge { color: #a9bccd; } }
+:root[data-theme="dark"] .lift-badge { color: #a9bccd; }
