@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4d3a'/%3E%3Cpath d='M16 4l-7 10h4l-5 7h5l-3 5h12l-3-5h5l-5-7h4z' fill='%23eef0ea'/%3E%3Crect x='14.5' y='25' width='3' height='4' fill='%23eef0ea'/%3E%3C/svg%3E">
   <!-- Bump ?v= whenever css or js changes, so browsers don't pair a new page with cached old files. -->
   <link rel="stylesheet" href="css/styles.css?v=1">
-  <link rel="stylesheet" href="css/forestry.css?v=3">
+  <link rel="stylesheet" href="css/forestry.css?v=4">
 </head>
 <body>
 
@@ -163,10 +163,26 @@
 
         <article class="project featured" id="p-lidar">
           <div>
+            <div class="hiz-badge" role="img" aria-label="Home Ignition Zone assessment badge: a house with a flame, inside rings at 1.5, 10 and 30 metres">
+              <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".45"/>
+                <circle cx="32" cy="32" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".7"/>
+                <circle cx="32" cy="32" r="13" class="hiz-core"/>
+                <path d="M24 34 L32 27 L40 34 V41 H24 Z" fill="var(--surface)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M32 40 c-3 0 -4 -2.2 -3.2 -4.2 c.6 -1.4 1.8 -2 1.9 -3.6 c1.9 1.1 2.4 2.6 2.1 3.8 c.7 -.4 1.1 -1 1.2 -1.8 c1.2 1.3 1.4 2.6 1 3.6 c-.5 1.3 -1.6 2.2 -3 2.2 Z" class="hiz-flame"/>
+              </svg>
+              <div>
+                <strong>Home Ignition Zone assessment</strong>
+                <span>Rings at 0–1.5 m · 1.5–10 m · 10–30 m</span>
+              </div>
+            </div>
             <span class="tag">LiDAR · Point cloud analysis · Personal project</span>
             <h3>FireSmart LiDAR neighbourhood assessment</h3>
             <p class="muted">Scores every house in an airborne LiDAR tile against the FireSmart Home Ignition Zone,
               using canopy and ladder fuel measured directly from the point cloud.</p>
+            <p class="cite-note">Scoring follows the <a href="https://firesmartcanada.ca/" target="_blank" rel="noopener">FireSmart Canada</a>
+              Home Ignition Zone guidance (0–1.5 m, 1.5–10 m, 10–30 m around the home). This is an independent
+              project, not affiliated with or endorsed by FireSmart Canada.</p>
             <ul class="chips"><li>Python</li><li>laspy / LAZ</li><li>NumPy · SciPy</li><li>Shapely · pyproj</li><li>Ontario classified point cloud</li><li>YAML config</li><li>Leaflet</li></ul>
             <div class="cta">
               <a class="btn primary" href="https://searchmont-analytics.github.io/smt-firesmart-assessment-lidar/" target="_blank" rel="noopener">Open the demo map ↗</a>
