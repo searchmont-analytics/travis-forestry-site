@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travis McCormack · Forestry Analytics</title>
+  <meta name="description" content="Travis McCormack: LiDAR, GIS and remote sensing projects in Python, backed by 20 years of data quality and QA work in an Ontario provincial agency and 28 years in the Searchmont fire service.">
+  <meta property="og:title" content="Travis McCormack · Forestry Analytics">
+  <meta property="og:description" content="LiDAR point cloud analysis, GIS, image analysis and data quality control for forest inventory.">
+  <meta property="og:url" content="https://travis-mccormack-forestry-analytics.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4d3a'/%3E%3Cpath d='M16 4l-7 10h4l-5 7h5l-3 5h12l-3-5h5l-5-7h4z' fill='%23eef0ea'/%3E%3Crect x='14.5' y='25' width='3' height='4' fill='%23eef0ea'/%3E%3C/svg%3E">
+  <!-- Bump ?v= whenever css or js changes, so browsers don't pair a new page with cached old files. -->
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <link rel="stylesheet" href="css/forestry.css?v=1">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top">Travis McCormack<span>.</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#fit">Inventory fit</a>
+      <a href="#projects">Projects</a>
+      <a href="#learning">Learning</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Forest inventory · LiDAR · GIS · Data quality</div>
+      <h1>Reading the forest from above, <em>and checking the data underneath</em>.</h1>
+      <p class="lede">I build LiDAR, GIS and image analysis tools in Python, and I spent nearly 20 years making
+        sure data in an Ontario provincial agency met its standard. I'd like to bring both to forest resources
+        inventory: interpreting imagery and point clouds, building spatial layers, and auditing the results
+        against provincial standards.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See the LiDAR and GIS work</a>
+        <a class="btn" href="#fit">How it maps to the role</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>111 km²</b><span>of Ontario 2024 classified LiDAR processed end to end</span></div>
+        <div class="stat"><b>603</b><span>houses scored from the point cloud across four townships</span></div>
+        <div class="stat"><b>~20 yrs</b><span>data quality, QA and testing at OLG</span></div>
+        <div class="stat"><b>B.Sc.</b><span>Mathematics &amp; Computer Science, cum laude</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fit" class="alt">
+    <div class="wrap">
+      <div class="eyebrow">Forest resources inventory</div>
+      <h2>Where my experience meets the work</h2>
+      <p class="section-intro">An FRI built on lidar area-based assessment and feature extraction needs three things
+        from an interpreter: a feel for the forest, fluency with spatial and point cloud data, and the discipline to
+        check every deliverable against the standard. Here is each qualification in the role, what I can show for
+        it today, and where I'm still building.</p>
+
+      <div class="fit-table" role="table" aria-label="Qualifications mapped to evidence">
+        <div class="fit-row head" role="row"><span role="columnheader">Qualification</span><span role="columnheader">Evidence</span><span role="columnheader">Status</span></div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">LiDAR, elevation models and point cloud data</div>
+          <div class="ev" role="cell">Built a Python pipeline that reads Ontario classified LAZ tiles, builds a
+            DTM and height-above-ground surface, and measures canopy cover and 1–4 m ladder fuel on a 1 m grid.
+            Ran it on 111 tiles of the 2024 Sault Ste. Marie lift. <a href="#p-lidar">FireSmart LiDAR →</a></div>
+          <div role="cell"><span class="pill shown">Demonstrated</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">GIS and spatial data analysis</div>
+          <div class="ev" role="cell">Network routing of 546 building footprints over 162 Ontario Road Network
+            segments, fixed-radius clustering, CRS handling between UTM 16N/17N and WGS84, GeoJSON/CSV exports.
+            <a href="#p-water">Water source atlas →</a></div>
+          <div role="cell"><span class="pill shown">Demonstrated</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Forest inventory standards and quality control
+            <small>QA/QC audits of interpreted inventory</small></div>
+          <div class="ev" role="cell">Authored an enterprise data quality strategy and built its config-driven
+            Python QC framework, drift detection and results portal. Every spatial project here is validated
+            against known truth before it is trusted. Studying the Ontario FRI technical specifications next.
+            <a href="#p-dq">Data quality work →</a></div>
+          <div role="cell"><span class="pill shown">Demonstrated</span> <span class="pill learning">Standards: learning</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Image interpretation and remote sensing</div>
+          <div class="ev" role="cell">Completed the Natural Resources Canada <i>Fundamentals of Remote Sensing</i>
+            tutorial. Built a computer vision prototype that detects, tracks and classifies objects from video
+            frames and scores itself against ground truth. <a href="#p-vision">Lift Vision Lab →</a></div>
+          <div role="cell"><span class="pill building">Building</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Forest ecology and tree identification</div>
+          <div class="ev" role="cell">Built an AI-assisted flashcard system for Ontario tree species and forest
+            ecology, including the look-alikes the role calls out: poplar and birch, spruce and balsam fir. Thirty
+            years living and working in the Algoma forest. <a href="#learning">Learning →</a></div>
+          <div role="cell"><span class="pill building">Building</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Soils, landforms and environmental science</div>
+          <div class="ev" role="cell">The next deck in the same learning system, covering soils, drainage,
+            landforms and ecosites. <a href="#learning">Learning →</a></div>
+          <div role="cell"><span class="pill learning">Learning</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">AI and machine learning; cloud storage and computing</div>
+          <div class="ev" role="cell">Object detection and tracking with precision/recall evaluation; z-score drift
+            detection on a 30-day rolling baseline; Python on Cloudera AI; migration to SaaS IBM watsonx; static
+            apps published on GitHub Pages and Cloudflare. AI tools are part of how I build and how I learn.</div>
+          <div role="cell"><span class="pill shown">Demonstrated</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Troubleshooting software and technical issues</div>
+          <div class="ev" role="cell">QA analyst, environment provisioning analyst and DQ analyst: defect management,
+            SIT/UAT environments, and pipelines that switch from SQLite to Impala and SQL Server through one config
+            file.</div>
+          <div role="cell"><span class="pill shown">Demonstrated</span></div>
+        </div>
+
+        <div class="fit-row" role="row">
+          <div class="req" role="cell">Project management, reporting and teamwork</div>
+          <div class="ev" role="cell">Led a 21-person volunteer fire department for 11 years; secretary of a
+            26-department mutual aid association; delivered strategy and migrations through business and IT teams.
+            Results reported through maps, dashboards and trend charts.</div>
+          <div role="cell"><span class="pill shown">Demonstrated</span></div>
+        </div>
+      </div>
+      <div class="fit-legend">
+        <span><span class="pill shown">Demonstrated</span> shown in the work below</span>
+        <span><span class="pill building">Building</span> foundations in place, growing</span>
+        <span><span class="pill learning">Learning</span> in active study</span>
+      </div>
+      <p class="honest"><b>On stereo interpretation:</b> I haven't yet interpreted forest stands in stereo
+        imagery to FRI standards. That's the skill I most want to develop in this role. What I bring to it is
+        strong spatial reasoning, LiDAR experience that complements the imagery, a fast and structured way of
+        learning, and a long habit of checking my own work against a known answer.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow">Selected project work</div>
+      <h2>Projects</h2>
+      <p class="section-intro">Three personal spatial and image analysis projects from the Searchmont area north of
+        Sault Ste. Marie, all public with their source code, followed by recent work from my role as Senior Data
+        Quality Analyst at OLG. The OLG code and data belong to OLG, so those are summaries of the design and
+        results.</p>
+
+      <div class="project-group"><h3>LiDAR, GIS and image analysis</h3><p>Personal projects · public source</p></div>
+      <div class="projects">
+
+        <article class="project featured" id="p-lidar">
+          <div>
+            <span class="tag">LiDAR · Point cloud analysis · Personal project</span>
+            <h3>FireSmart LiDAR neighbourhood assessment</h3>
+            <p class="muted">Scores every house in an airborne LiDAR tile against the FireSmart Home Ignition Zone,
+              using canopy and ladder fuel measured directly from the point cloud.</p>
+            <ul class="chips"><li>Python</li><li>laspy / LAZ</li><li>NumPy · SciPy</li><li>Shapely · pyproj</li><li>Ontario classified point cloud</li><li>YAML config</li><li>Leaflet</li></ul>
+            <div class="cta">
+              <a class="btn primary" href="https://searchmont-analytics.github.io/smt-firesmart-assessment-lidar/" target="_blank" rel="noopener">Open the demo map ↗</a>
+              <a class="btn" href="https://github.com/searchmont-analytics/smt-firesmart-assessment-lidar" target="_blank" rel="noopener">View source</a>
+            </div>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Most wildfire home losses start in the 30 m around the house. Walking every lot to
+              assess vegetation is slow, but Ontario's classified LiDAR already holds the structure of every tree and
+              shrub near every building.</dd></div>
+            <div><dt>Approach</dt><dd>Reads LAS 1.4 / LAZ tiles, filters noise, water and bridge classes, interpolates a
+              DTM from ground returns and computes height above ground for every point. On a 1 m grid it maps canopy
+              (vegetation ≥ 3 m) and ladder fuel (returns 1–4 m). Buildings come from class 6 or are detected from
+              geometry: smooth, single-return roof cells with a compactness test. Each house gets canopy and ladder
+              percentages for the 1.5–10 m and 10–30 m rings, overhanging branches and slope.
+              <div class="bridge" aria-label="How pipeline layers relate to inventory attributes">
+                <div><b>DTM + height above ground</b><i>→</i><span>stand height</span></div>
+                <div><b>Canopy ≥ 3 m per cell</b><i>→</i><span>crown closure</span></div>
+                <div><b>Returns in a height band</b><i>→</i><span>vertical structure, understorey</span></div>
+                <div><b>Slope from the DTM</b><i>→</i><span>landform, drainage context</span></div>
+              </div>
+            </dd></div>
+            <div><dt>Quality control</dt><dd>A synthetic tile (~4.3 M points) ships with known truth for every lot:
+              14 of 14 houses found from geometry alone within ~1 m, Spearman −0.98 between yard management and score.
+              The report states the bias openly: canopy reads ~7 points high where crown edges spill into cells, and
+              ladder fuel ~7 points low where dense crowns hide low branches. Every threshold lives in one config file,
+              and point-density settings were retuned for the ~20 pts/m² 2024 lift.</dd></div>
+            <div><dt>Result</dt><dd>A one-click Windows run downloads and processes 111 one-kilometre tiles of the 2024
+              Sault Ste. Marie lift along the Searchmont corridor (about 18 GB) and scores 603 houses across Deroche,
+              Hodgins, Gaudette and Shields townships. That map is password-protected, since property-level results
+              belong to the owner. The public demo uses the synthetic tile.</dd></div>
+          </dl>
+          <figure class="shot">
+            <a href="https://searchmont-analytics.github.io/smt-firesmart-assessment-lidar/" target="_blank" rel="noopener"><img src="img/firesmart-demo.png" alt="Demo map of a synthetic LiDAR tile: canopy height shaded green over a rural road, with houses labelled P01 to P14 and coloured by risk rating, beside a table of Zone 1 and Zone 2 canopy and ladder fuel percentages and scores" loading="lazy" width="752" height="422"></a>
+            <figcaption>Public demo on the synthetic tile: canopy height from the point cloud, houses coloured by
+              rating, zone metrics in the side panel. Click to open the map.</figcaption>
+          </figure>
+        </article>
+
+        <article class="project featured" id="p-water">
+          <div>
+            <span class="tag">GIS · Network analysis · Personal project</span>
+            <h3>Searchmont water source evaluation atlas</h3>
+            <p class="muted">An interactive map for planning rural firefighting water supply in the Searchmont
+              Fire Department response area, north of Sault Ste. Marie.</p>
+            <ul class="chips"><li>Leaflet</li><li>GeoJSON</li><li>Ontario Road Network</li><li>Network routing</li><li>Spatial clustering</li><li>JavaScript</li><li>Python</li></ul>
+            <div class="cta">
+              <a class="btn primary" href="https://searchmont-analytics.github.io/smt_water_sources/" target="_blank" rel="noopener">Open the live map ↗</a>
+              <a class="btn" href="https://github.com/searchmont-analytics/smt_water_sources" target="_blank" rel="noopener">View source</a>
+            </div>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Rural fire response in Searchmont depends on limited water: one hydrant at the
+              ski resort and a set of drafting sites on lakes and rivers. Planning where new water storage would
+              help most means knowing how far each building is from water by road, not as the crow flies.</dd></div>
+            <div><dt>Approach</dt><dd>Combined 20 known water locations and the fire hall with 162 Ontario Road Network
+              segments and 546 Microsoft building footprints on an Esri basemap. Every building is routed along the
+              road network to the hydrant, with explicit speed assumptions (40 km/h paved, 25 km/h unpaved, capped at
+              posted limits). Fixed-radius clustering finds groups of structures that could share a cistern, and a
+              time-budget view shows which roads fall within a given drive time. Results export as CSV, JSON and
+              GeoJSON.</dd></div>
+            <div><dt>Data quality</dt><dd>Every assumption and limit is stated on screen: footprints are not
+              confirmed homes, unreviewed roads are flagged, and point-to-road gaps are reported separately rather
+              than hidden in the totals. Automated tests check the routing and clustering, and a script reproduces the
+              baseline analysis.</dd></div>
+            <div><dt>Result</dt><dd>509 of 546 structures routed to the hydrant (37 sit more than 250 m from a mapped
+              road). At a 500 m radius with at least five structures, 28 groups cover 480 structures: a starting point
+              for discussions on long-term water source development.</dd></div>
+          </dl>
+          <figure class="shot">
+            <a href="https://searchmont-analytics.github.io/smt_water_sources/" target="_blank" rel="noopener"><span class="crop-chrome"><img src="img/searchmont-atlas-2.webp" alt="Topographic map of the Searchmont response area showing water sources, the hydrant, buildings coloured by route time, and 500 metre cluster circles labelled with structure counts, with the hydrant and cluster evaluation panel open" loading="lazy" width="1554" height="963"></span></a>
+            <figcaption>The Evaluate tab: buildings coloured by road travel time to the hydrant, grouped into 500 m
+              clusters. Click to open the live map.</figcaption>
+          </figure>
+        </article>
+
+        <article class="project" id="p-vision">
+          <div>
+            <span class="tag">Computer vision · Image analysis · Personal project</span>
+            <h3>Lift Vision Lab</h3>
+            <p class="muted">A browser-only computer vision prototype that detects, tracks and classifies riders on
+              a chairlift from video frames, then scores itself against ground truth.</p>
+            <ul class="chips"><li>JavaScript</li><li>Canvas pixel analysis</li><li>Object tracking</li><li>Precision / recall</li><li>Human review loop</li></ul>
+            <div class="cta">
+              <a class="btn primary" href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener">Try the demo ↗</a>
+              <a class="btn" href="https://github.com/searchmont-analytics/Lift_vision_lab" target="_blank" rel="noopener">View source</a>
+            </div>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Counting and classifying what a camera sees, reliably enough to report on,
+              without hiding where the method fails.</dd></div>
+            <div><dt>Approach</dt><dd>Reads rendered frame pixels, extracts connected dark silhouettes inside an
+              analysis band, links detections over time into tracks and counts each one once as it clears a gate.
+              Silhouette geometry gives an equipment class, a colour cue flags patrol. A reviewer can correct a label
+              or reject a false count; raw metrics still reflect the original detections.</dd></div>
+            <div><dt>Evaluation</dt><dd>Events are matched one-to-one against ground truth within 0.5 s and 18 px.
+              Baseline: 12 of 12, 100% precision and recall. Stress scenario with snow, occlusion and low contrast:
+              100% precision, 83.3% recall, with each miss explained. The README sets out a pilot plan with
+              independent second-reviewer labelling, held-out footage and acceptance gates.</dd></div>
+            <div><dt>Why it matters here</dt><dd>The same disciplines apply to feature extraction from imagery:
+              define the class, measure it against reviewed truth, report precision and recall by condition, and
+              keep a human in the loop for the uncertain cases.</dd></div>
+          </dl>
+          <figure class="shot plain">
+            <a href="https://searchmont-analytics.github.io/Lift_vision_lab/" target="_blank" rel="noopener"><img src="img/lift-vision-lab.png" alt="Lift Vision Lab running the baseline sample: chairs move left to right past a vertical gate line, with detected riders boxed and labelled skier, snowboarder, adaptive and unknown" loading="lazy" width="600" height="500"></a>
+            <figcaption>Baseline sample mid-run: tracked riders, class labels and the counting gate.</figcaption>
+          </figure>
+        </article>
+
+      </div>
+
+      <div class="project-group" id="p-dq"><h3>Data quality and quality control</h3><p>Senior Data Quality Analyst · OLG</p></div>
+      <div class="projects">
+
+        <article class="project">
+          <div>
+            <span class="tag">Python · Cloudera AI</span>
+            <h3>Config-driven data quality framework</h3>
+            <p class="muted">Checks across thousands of critical data elements, defined in configuration rather
+              than hand-written code.</p>
+            <ul class="chips"><li>Python</li><li>YAML config</li><li>Impala</li><li>MS SQL Server</li><li>SQLite</li><li>CLI</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>OLG's primary data quality tool was unavailable during its migration to IBM
+              watsonx, but thousands of critical data elements (CDEs) still needed checking.</dd></div>
+            <div><dt>Approach</dt><dd>Championed, designed and built a Python framework on Cloudera AI. A single YAML
+              file is the source of truth for every CDE: its table and column, risk tier, owner, validity pattern
+              and thresholds. Completeness thresholds default by tier (95%, 90% and 80%) and can be overridden per
+              element. A command-line scheduler runs daily checks by mode, tier or element and returns a failing
+              exit code so alerting pipelines can react.</dd></div>
+            <div><dt>Testing</dt><dd>It runs locally on SQLite and switches to Impala sources and an MS SQL Server
+              results database by editing one environment file, with no code changes. Seed scripts create
+              synthetic data with known, planted problems and the expected result for each check, so the framework
+              is proven against a known answer before it touches production.</dd></div>
+            <div><dt>Result</dt><dd>Data quality coverage continued through the tool migration. Adding a CDE means
+              adding a config entry, not writing a new script.</dd></div>
+          </dl>
+          <figure class="shot">
+            <img src="img/dq-framework-overview-2.jpg" alt="Infographic of the config-driven data quality framework: the problem, a YAML config driving a Python framework on Cloudera AI, tier-based completeness thresholds, a CLI that returns a failing exit code for alerting, testing on SQLite with seed scripts before moving to Impala and MS SQL Server, and the result of continued coverage" loading="lazy" width="1024" height="559">
+            <figcaption>Overview of the framework: problem, approach, testing and result.</figcaption>
+          </figure>
+          <div class="fire-link" style="grid-column:1/-1"><b>In forest inventory:</b> the same pattern fits an FRI
+            audit. Each attribute rule (valid species codes, crown closure in range, height consistent with age and
+            site class, no gaps or slivers between polygons) is a config entry, run against every delivered batch,
+            with failures traced to the polygon.</div>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Statistics · Monitoring</span>
+            <h3>Data observability and drift detection</h3>
+            <p class="muted">A baseline layer that watches every column every day and flags what has changed.</p>
+            <ul class="chips"><li>Python</li><li>Time series</li><li>z-score detection</li><li>Data profiling</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Hand-written rules only catch the problems someone thought of in advance.</dd></div>
+            <div><dt>Approach</dt><dd>Built daily column-level metrics (row counts, null rates, distinct counts,
+              min and max) and used z-scores against a 30-day rolling baseline to flag drift from each column's own
+              norm, at high, medium and low severity. A 7-day burn-in keeps new elements from raising alerts before
+              a baseline exists. In testing it catches a null-rate spike, a row-count drop and a collapse in
+              distinct values.</dd></div>
+            <div><dt>Result</dt><dd>Broad, low-effort monitoring across the data lake, so expert effort could go to
+              the highest-risk data.</dd></div>
+          </dl>
+          <figure class="shot wide">
+            <img src="img/observability-flow.png" alt="Five-step observability process: compute daily column metrics, compare to a 30-day rolling baseline with z-scores, apply guardrails including a 7-day burn-in, flag drift at high, medium and low severity, and focus expert effort on the highest-risk data. Outcome: broad, low-effort monitoring across the data lake." loading="lazy" width="1242" height="189">
+          </figure>
+          <div class="fire-link" style="grid-column:1/-1"><b>In forest inventory:</b> profiling each contractor
+            deliverable against earlier ones would flag a block whose species mix, height distribution or
+            crown closure suddenly shifts from its neighbours, so audit time goes where it's most likely needed.</div>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Architecture · Strategy</span>
+            <h3>Enterprise DQ strategy and risk-tiered coverage</h3>
+            <p class="muted">A 14-section strategy and a three-layer control model that puts effort where the
+              risk is.</p>
+            <ul class="chips"><li>DAMA-DMBOK</li><li>COBIT</li><li>Risk tiering</li><li>Governance</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Writing one rule for every element across thousands of CDEs does not scale,
+              and spreads effort evenly regardless of risk.</dd></div>
+            <div><dt>Approach</dt><dd>Authored the enterprise data quality strategy (dimensions, controls,
+              monitoring, issue management, tooling, regulatory alignment, change management and a maturity
+              roadmap) and designed a three-layer control model:
+              <div class="layers">
+                <div class="layer l3"><b>Curated, governed rules</b><span>Deep, business-owned checks for Tier 1 critical data</span></div>
+                <div class="layer l2"><b>Automated completeness rules</b><span>Baseline checks for every element in scope</span></div>
+                <div class="layer l1"><b>Observability monitoring</b><span>Daily metrics and drift detection across everything</span></div>
+              </div>
+            </dd></div>
+            <div><dt>Result</dt><dd>Business-led Tier 1 to 3 classification directs governed rules to the highest-risk
+              elements and automation to the rest. An Authoritative Data Source principle means curated rules run
+              once at the point of origin and downstream zones inherit the results.</dd></div>
+          </dl>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Dashboards · SQL Server</span>
+            <h3>Data Quality Portal and central results database</h3>
+            <p class="muted">One view of data health, whichever tool ran the check.</p>
+            <ul class="chips"><li>Streamlit</li><li>Plotly</li><li>Pandas</li><li>Impala</li><li>MS SQL Server</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Results were scattered across Python checks, Alteryx and watsonx, each in its own
+              format, and data owners had no single place to see them.</dd></div>
+            <div><dt>Approach</dt><dd>Architected a central results database on MS SQL Server with a common schema
+              tagged by source system. Built a multi-page Streamlit portal on top of it: dataset explorer, column
+              profiling, rule results, drill-down to failed records, DQ trends, metadata, observability metrics
+              and a cross-table alert feed.</dd></div>
+            <div><dt>Why Streamlit</dt><dd>The portal is written entirely in Python, the same language as the DQ
+              framework, so the data quality team could build and maintain it without a separate web development
+              project. Pandas tables and Plotly charts drop straight onto a page, and built-in filters and
+              selectors make drill-downs simple to add. New pages took hours rather than weeks, so the portal could
+              grow alongside the program.</dd></div>
+            <div><dt>Result</dt><dd>Data owners and stewards see what is checked, what passed and what is drifting in
+              one place. Admins can switch pages on and off without a redeploy, and a focused
+              observability-only build runs from the same code.</dd></div>
+          </dl>
+          <figure class="shot">
+            <img src="img/dq-portal-overview.webp" alt="Illustration of the Data Quality Portal: results from Python checks, Alteryx and watsonx flow into a central MS SQL Server results database, which feeds a dashboard with summary tiles, a DQ trend chart, results by source system, recent rule failures and data health by dataset" loading="lazy" width="1426" height="666">
+            <figcaption>Illustration of the portal and how results flow into it. Figures shown are sample values.</figcaption>
+          </figure>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Training · Web</span>
+            <h3 id="learning-hub">DQ learning portal (mini-LMS)</h3>
+            <p class="muted">A complete curriculum, written and built by me, to train data stewards and data
+              owners.</p>
+            <ul class="chips"><li>Python / Flask</li><li>HTML / CSS / JavaScript</li><li>Docker</li><li>Instructional design</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>A data quality program only works if the people who own the data understand
+              their role in it.</dd></div>
+            <div><dt>Approach</dt><dd>Designed the portal and all of its content: 3 modules and 17 lessons
+              covering DQ principles, how data quality affects their work, their role in the process, the tooling,
+              and how the enterprise strategy fits together. Lessons combine written guides, scenario-based
+              quizzes and progress tracking, plus practice games such as <i>Dirty Record Detective</i>,
+              <i>Dimension Sorter</i>, <i>The Cascade Effect</i> and <i>Steward for a Day</i>.</dd></div>
+            <div><dt>Result</dt><dd>A self-paced Flask web app, packaged in Docker. Learner progress,
+              quiz results and feedback feed engagement, mastery and reach dashboards in the Data Quality
+              Portal, so the program can see who is learning and where lessons need work.</dd></div>
+          </dl>
+          <figure class="shot">
+            <div class="dq-wrap">
+            <svg class="dq play" viewBox="0 0 1200 690" role="img" aria-labelledby="lhT lhD" xmlns="http://www.w3.org/2000/svg">
+              <title id="lhT">DQ learning portal (mini-LMS)</title>
+              <desc id="lhD">A complete curriculum, written and built by Travis McCormack, to train data stewards and data owners: 3 modules and 17 lessons with written guides, scenario-based quizzes, progress tracking and practice games (Dirty Record Detective, Dimension Sorter, The Cascade Effect, Steward for a Day). A self-paced Flask web app packaged in Docker; learner progress, quiz results and feedback feed engagement, mastery and reach dashboards in the Data Quality Portal.</desc>
+              <defs>
+                <linearGradient id="lhBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d2540"/><stop offset="1" stop-color="#071624"/></linearGradient>
+                <pattern id="lhDots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#17395a"/></pattern>
+                <marker id="lhAh" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3fd0c9"/></marker>
+                <symbol id="lhPerson" viewBox="0 0 30 36">
+                  <circle cx="15" cy="9" r="8" fill="currentColor"/>
+                  <path d="M1 36 C1 23, 29 23, 29 36 Z" fill="currentColor"/>
+                </symbol>
+                <clipPath id="lhAvatarClip"><circle cx="440" cy="262" r="33"/></clipPath>
+              </defs>
+
+              <rect width="1200" height="690" fill="url(#lhBg)"/>
+              <rect width="1200" height="690" fill="url(#lhDots)"/>
+
+              <!-- Title -->
+              <g class="a" style="--d:0s">
+                <rect x="0" y="0" width="1200" height="58" fill="#0b2238"/>
+                <line x1="0" y1="58" x2="1200" y2="58" stroke="#2b6a93"/>
+                <rect x="22" y="13" width="18" height="18" rx="4" fill="#3d7ab8"/>
+                <rect x="33" y="24" width="18" height="18" rx="4" fill="#f5c84c"/>
+                <text x="64" y="38" font-size="25" font-weight="700" fill="#fff">Python · Flask · Docker: DQ learning portal (mini-LMS)</text>
+              </g>
+
+              <!-- Banner -->
+              <g class="a" style="--d:.4s">
+                <rect x="365" y="70" width="470" height="58" rx="10" fill="#0f2c47" stroke="#3fd0c9" stroke-width="1.5"/>
+                <text x="600" y="94" text-anchor="middle" font-size="15" fill="#e8f1f8">A complete curriculum, <tspan fill="#f5c84c" font-weight="700">written and built by me</tspan>,</text>
+                <text x="600" y="115" text-anchor="middle" font-size="15" fill="#e8f1f8">to train data stewards and data owners.</text>
+              </g>
+
+              <!-- Problem -->
+              <g class="a" style="--d:.9s">
+                <text x="28" y="94" font-size="22" font-weight="700" fill="#fff">Problem</text>
+                <rect x="30" y="112" width="132" height="62" rx="10" fill="#0f2c47" stroke="#3fd0c9" stroke-width="1.5"/>
+                <circle cx="54" cy="143" r="13" fill="#123f33" stroke="#4cc38a" stroke-width="2"/>
+                <path d="M47 143l5 5l9-10" fill="none" stroke="#4cc38a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="75" y="139" font-size="13" font-weight="700" fill="#e8f1f8">Data quality</text>
+                <text x="75" y="156" font-size="13" font-weight="700" fill="#e8f1f8">program</text>
+                <path d="M164 143 H212" stroke="#e5534b" stroke-width="2.5" stroke-dasharray="5 5"/>
+                <path d="M181 135l14 14M195 135l-14 14" stroke="#e5534b" stroke-width="4" stroke-linecap="round"/>
+                <use href="#lhPerson" x="216" y="128" width="30" height="36" style="color:#9fb6c8"/>
+                <use href="#lhPerson" x="256" y="128" width="30" height="36" style="color:#9fb6c8"/>
+                <use href="#lhPerson" x="296" y="128" width="30" height="36" style="color:#9fb6c8"/>
+                <text x="271" y="184" text-anchor="middle" font-size="11.5" fill="#9fb6c8">data stewards</text>
+                <text x="271" y="198" text-anchor="middle" font-size="11.5" fill="#9fb6c8">and owners</text>
+                <text x="28" y="236" font-size="14" fill="#e8f1f8">A data quality program only works</text>
+                <text x="28" y="255" font-size="14" fill="#e8f1f8">if the people who own the data</text>
+                <text x="28" y="274" font-size="14" fill="#e8f1f8"><tspan fill="#f5c84c" font-weight="700">understand their role</tspan> in it.</text>
+              </g>
+              <g class="a pop" style="--d:1.4s"><g class="bob"><circle cx="231" cy="111" r="10" fill="#f5c84c"/><text x="231" y="116" text-anchor="middle" font-size="14" font-weight="800" fill="#1b2a38">?</text></g></g>
+              <g class="a pop" style="--d:1.6s"><g class="bob" style="animation-delay:.4s"><circle cx="271" cy="107" r="10" fill="#f5c84c"/><text x="271" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#1b2a38">?</text></g></g>
+              <g class="a pop" style="--d:1.8s"><g class="bob" style="animation-delay:.8s"><circle cx="311" cy="111" r="10" fill="#f5c84c"/><text x="311" y="116" text-anchor="middle" font-size="14" font-weight="800" fill="#1b2a38">?</text></g></g>
+
+              <!-- Problem -> Approach -->
+              <g class="a" style="--d:2.2s">
+                <path class="flow" d="M260 300 C 320 318, 365 302, 398 280" fill="none" stroke="#3fd0c9" stroke-width="3" marker-end="url(#lhAh)"/>
+              </g>
+
+              <!-- Approach: avatar -->
+              <g class="a" style="--d:2.5s">
+                <text x="635" y="160" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Approach</text>
+                <circle cx="440" cy="262" r="34" fill="#133a5c" stroke="#3fd0c9" stroke-width="2"/>
+                <g clip-path="url(#lhAvatarClip)">
+                  <path d="M404 300 C406 283, 421 276, 440 276 C459 276, 474 283, 476 300 Z" fill="#2b77ad"/>
+                  <path d="M431 277 L440 289 L449 277" fill="#f4f7fb"/>
+                  <path d="M440 289 L440 300" stroke="#1d5c8a" stroke-width="1.5"/>
+                  <rect x="435" y="263" width="10" height="14" rx="3" fill="#e2b48f"/>
+                  <circle cx="427.5" cy="253" r="3.2" fill="#e2b48f"/>
+                  <circle cx="452.5" cy="253" r="3.2" fill="#e2b48f"/>
+                  <ellipse cx="440" cy="252" rx="12" ry="14.5" fill="#ecc19c"/>
+                  <path d="M427.5 250 C426 237, 433 232.5, 441 233 C449 233, 455 238, 452.5 250 C451 243, 447 240.5, 440 241 C433.5 241, 429.5 243.5, 427.5 250 Z" fill="#4a3424"/>
+                  <rect x="430" y="248" width="8.5" height="6.5" rx="2.2" fill="rgba(255,255,255,.25)" stroke="#1b2a38" stroke-width="1.6"/>
+                  <rect x="441.5" y="248" width="8.5" height="6.5" rx="2.2" fill="rgba(255,255,255,.25)" stroke="#1b2a38" stroke-width="1.6"/>
+                  <path d="M438.5 250.5 H441.5 M430 250 L427.5 249 M450 250 L452.5 249" stroke="#1b2a38" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M431 245.5 q3.5 -1.5 7 0 M442 245.5 q3.5 -1.5 7 0" stroke="#4a3424" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+                  <path d="M436 259.5 q4 3 8 0" stroke="#9a5f3c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+                </g>
+                <text x="440" y="318" text-anchor="middle" font-size="12.5" fill="#e8f1f8">Curriculum and</text>
+                <text x="440" y="334" text-anchor="middle" font-size="12.5" fill="#e8f1f8">portal, end to end</text>
+                <path class="flow" d="M476 262 H496" stroke="#3fd0c9" stroke-width="2.5" marker-end="url(#lhAh)"/>
+              </g>
+              <g class="a pop" style="--d:2.8s">
+                <rect x="375" y="166" width="120" height="46" rx="20" fill="#f4f7fb"/>
+                <path d="M425 210l6 14l10-14z" fill="#f4f7fb"/>
+                <text x="435" y="185" text-anchor="middle" font-size="12" font-weight="600" fill="#0f2c47">Designed, written</text>
+                <text x="435" y="201" text-anchor="middle" font-size="12" font-weight="600" fill="#0f2c47">and built</text>
+              </g>
+
+              <!-- Learning Hub window -->
+              <g class="a" style="--d:3.1s">
+                <rect x="500" y="170" width="270" height="218" rx="10" fill="#0a1522" stroke="#9fb6c8" stroke-width="1.5"/>
+                <rect x="500" y="170" width="270" height="22" rx="10" fill="#22384d"/>
+                <rect x="500" y="182" width="270" height="10" fill="#22384d"/>
+                <circle cx="513" cy="181" r="3.5" fill="#e5534b"/><circle cx="525" cy="181" r="3.5" fill="#f5c84c"/><circle cx="537" cy="181" r="3.5" fill="#4cc38a"/>
+                <text x="645" y="185" text-anchor="middle" font-size="10" fill="#9fb6c8">learning-hub</text>
+                <text x="514" y="211" font-size="14" font-weight="700" fill="#fff">Learning Hub</text>
+                <text x="756" y="211" text-anchor="end" font-size="12" font-weight="600" fill="#3fd0c9"><tspan data-count="3" data-delay="3.3">3</tspan> modules · <tspan data-count="17" data-delay="3.3">17</tspan> lessons</text>
+                <text x="514" y="378" font-size="10.5" fill="#9fb6c8">+ practice games · quizzes · progress</text>
+              </g>
+              <g class="a" style="--d:3.5s">
+                <rect x="512" y="222" width="246" height="40" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <circle cx="530" cy="242" r="11" fill="#3fd0c9"/><text x="530" y="246.5" text-anchor="middle" font-size="12" font-weight="800" fill="#0a1522">1</text>
+                <text x="548" y="239" font-size="11.5" font-weight="700" fill="#e8f1f8">DQ Fundamentals + Program Model</text>
+                <text x="548" y="254" font-size="10.5" fill="#9fb6c8">8 lessons</text>
+                <rect x="612" y="249" width="134" height="5" rx="2.5" fill="#22384d"/>
+              </g>
+              <rect class="type" style="--d:3.9s" x="612" y="249" width="134" height="5" rx="2.5" fill="#3fd0c9"/>
+              <g class="a" style="--d:3.8s">
+                <rect x="512" y="270" width="246" height="40" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <circle cx="530" cy="290" r="11" fill="#f5c84c"/><text x="530" y="294.5" text-anchor="middle" font-size="12" font-weight="800" fill="#0a1522">2</text>
+                <text x="548" y="287" font-size="11.5" font-weight="700" fill="#e8f1f8">WatsonX — Tier 1 Curated Rules</text>
+                <text x="548" y="302" font-size="10.5" fill="#9fb6c8">6 lessons</text>
+                <rect x="612" y="297" width="134" height="5" rx="2.5" fill="#22384d"/>
+              </g>
+              <rect class="type" style="--d:4.2s" x="612" y="297" width="134" height="5" rx="2.5" fill="#f5c84c"/>
+              <g class="a" style="--d:4.1s">
+                <rect x="512" y="318" width="246" height="40" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <circle cx="530" cy="338" r="11" fill="#4cc38a"/><text x="530" y="342.5" text-anchor="middle" font-size="12" font-weight="800" fill="#0a1522">3</text>
+                <text x="548" y="335" font-size="11.5" font-weight="700" fill="#e8f1f8">Python Framework — Tier 2 + 3</text>
+                <text x="548" y="350" font-size="10.5" fill="#9fb6c8">3 lessons</text>
+                <rect x="612" y="345" width="134" height="5" rx="2.5" fill="#22384d"/>
+              </g>
+              <rect class="type" style="--d:4.5s" x="612" y="345" width="134" height="5" rx="2.5" fill="#4cc38a"/>
+              <g class="a" style="--d:4.7s">
+                <text x="635" y="410" text-anchor="middle" font-size="13" fill="#e8f1f8">Covers <tspan fill="#f5c84c" font-weight="700">DQ principles</tspan>, how DQ affects their work,</text>
+                <text x="635" y="428" text-anchor="middle" font-size="13" fill="#e8f1f8">their role in the process, the tooling, and how</text>
+                <text x="635" y="446" text-anchor="middle" font-size="13" fill="#e8f1f8">the enterprise strategy fits together.</text>
+              </g>
+
+              <!-- Inside every lesson -->
+              <g class="a" style="--d:5.1s">
+                <text x="855" y="94" font-size="22" font-weight="700" fill="#fff">Inside every lesson</text>
+              </g>
+              <g class="a pop" style="--d:5.4s">
+                <path d="M860 112h28l10 10v38h-38z" fill="#f4f7fb" stroke="#9fb6c8"/>
+                <path d="M888 112v10h10z" fill="#c9d8e6"/>
+                <rect x="866" y="128" width="24" height="3.5" rx="1.5" fill="#3d7ab8"/>
+                <rect x="866" y="136" width="26" height="3" rx="1.5" fill="#9fb6c8"/>
+                <rect x="866" y="143" width="20" height="3" rx="1.5" fill="#9fb6c8"/>
+                <rect x="866" y="150" width="25" height="3" rx="1.5" fill="#9fb6c8"/>
+              </g>
+              <g class="a" style="--d:5.5s">
+                <text x="914" y="132" font-size="14" font-weight="700" fill="#e8f1f8">Written guides</text>
+                <text x="914" y="150" font-size="12" fill="#9fb6c8">read at your own pace</text>
+              </g>
+              <g class="a pop" style="--d:5.8s">
+                <rect x="860" y="178" width="38" height="48" rx="5" fill="#0f2c47" stroke="#3fd0c9" stroke-width="1.5"/>
+                <circle cx="869" cy="191" r="3.5" fill="none" stroke="#9fb6c8" stroke-width="1.5"/><rect x="876" y="189.5" width="16" height="3" rx="1.5" fill="#9fb6c8"/>
+                <circle cx="869" cy="203" r="3.5" fill="none" stroke="#9fb6c8" stroke-width="1.5"/><rect x="876" y="201.5" width="13" height="3" rx="1.5" fill="#9fb6c8"/>
+                <circle cx="869" cy="215" r="3.5" fill="none" stroke="#9fb6c8" stroke-width="1.5"/><rect x="876" y="213.5" width="15" height="3" rx="1.5" fill="#9fb6c8"/>
+              </g>
+              <g class="a pop" style="--d:6.3s">
+                <circle cx="869" cy="203" r="4.5" fill="#4cc38a"/>
+                <circle cx="898" cy="180" r="9" fill="#123f33" stroke="#4cc38a" stroke-width="2"/>
+                <path d="M894 180l3 3.5l5.5-6" fill="none" stroke="#4cc38a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <g class="a" style="--d:5.9s">
+                <text x="914" y="198" font-size="14" font-weight="700" fill="#e8f1f8">Scenario-based quizzes</text>
+                <text x="914" y="216" font-size="12" fill="#9fb6c8">apply it to real situations</text>
+              </g>
+              <g class="a" style="--d:6.6s">
+                <circle cx="879" cy="270" r="17" fill="none" stroke="#22384d" stroke-width="6"/>
+                <text x="914" y="266" font-size="14" font-weight="700" fill="#e8f1f8">Progress tracking</text>
+                <rect x="914" y="276" width="236" height="8" rx="4" fill="#22384d"/>
+                <text x="914" y="300" font-size="11.5" fill="#9fb6c8">lesson complete</text>
+                <text x="1150" y="300" text-anchor="end" font-size="11.5" font-weight="700" fill="#3fd0c9"><tspan data-count="100" data-delay="6.9">100</tspan>%</text>
+              </g>
+              <circle class="draw" style="--d:6.9s" pathLength="1" cx="879" cy="270" r="17" fill="none" stroke="#3fd0c9" stroke-width="6" transform="rotate(-90 879 270)"/>
+              <rect class="type" style="--d:6.9s;animation-duration:1s" x="914" y="276" width="236" height="8" rx="4" fill="#3fd0c9"/>
+              <g class="a" style="--d:7.4s">
+                <path class="flow" d="M1166 312 V458" stroke="#3fd0c9" stroke-width="3" marker-end="url(#lhAh)"/>
+              </g>
+
+              <!-- Practice games -->
+              <g class="a" style="--d:7.6s">
+                <text x="28" y="382" font-size="22" font-weight="700" fill="#fff">Practice games</text>
+                <path class="flow" d="M400 420 C 435 402, 462 392, 494 378" fill="none" stroke="#3fd0c9" stroke-width="3" marker-end="url(#lhAh)"/>
+              </g>
+              <g class="a pop" style="--d:7.9s">
+                <rect x="28" y="396" width="178" height="112" rx="10" fill="#0f2c47" stroke="#2b6a93"/>
+                <rect x="42" y="414" width="30" height="5" rx="2" fill="#9fb6c8"/>
+                <rect x="42" y="423" width="24" height="5" rx="2" fill="#e5534b"/>
+                <rect x="42" y="432" width="28" height="5" rx="2" fill="#9fb6c8"/>
+                <g class="scan">
+                  <circle cx="68" cy="426" r="11" fill="rgba(63,208,201,.15)" stroke="#3fd0c9" stroke-width="3"/>
+                  <path d="M76 434 L85 443" stroke="#3fd0c9" stroke-width="4" stroke-linecap="round"/>
+                </g>
+                <text x="42" y="470" font-size="12.5" font-weight="700" fill="#e8f1f8">Dirty Record Detective</text>
+                <text x="42" y="487" font-size="10.5" fill="#9fb6c8">Hunt the defect</text>
+                <text x="42" y="501" font-size="10.5" fill="#9fb6c8">in each record</text>
+              </g>
+              <g class="a pop" style="--d:8.1s">
+                <rect x="216" y="396" width="178" height="112" rx="10" fill="#0f2c47" stroke="#2b6a93"/>
+                <path d="M230 432v18h11v-18" fill="none" stroke="#3fd0c9" stroke-width="2"/>
+                <path d="M245 432v18h11v-18" fill="none" stroke="#f5c84c" stroke-width="2"/>
+                <path d="M260 432v18h11v-18" fill="none" stroke="#4cc38a" stroke-width="2"/>
+                <rect class="drop" x="247" y="412" width="7" height="7" rx="1.5" fill="#f5c84c"/>
+                <text x="230" y="470" font-size="12.5" font-weight="700" fill="#e8f1f8">Dimension Sorter</text>
+                <text x="230" y="487" font-size="10.5" fill="#9fb6c8">Sort records into</text>
+                <text x="230" y="501" font-size="10.5" fill="#9fb6c8">the right dimension</text>
+              </g>
+              <g class="a pop" style="--d:8.3s">
+                <rect x="28" y="516" width="178" height="112" rx="10" fill="#0f2c47" stroke="#2b6a93"/>
+                <rect x="42" y="530" width="6" height="26" rx="1.5" fill="#9fb6c8"/>
+                <rect x="54" y="530" width="6" height="26" rx="1.5" fill="#9fb6c8" transform="rotate(14 60 556)"/>
+                <rect x="68" y="530" width="6" height="26" rx="1.5" fill="#f5c84c" transform="rotate(34 74 556)"/>
+                <rect x="84" y="530" width="6" height="26" rx="1.5" fill="#e5534b" transform="rotate(68 90 556)"/>
+                <line x1="38" y1="557" x2="112" y2="557" stroke="#2b6a93" stroke-width="2"/>
+                <text x="42" y="590" font-size="12.5" font-weight="700" fill="#e8f1f8">The Cascade Effect</text>
+                <text x="42" y="607" font-size="10.5" fill="#9fb6c8">Spot how one bad</text>
+                <text x="42" y="621" font-size="10.5" fill="#9fb6c8">record compounds</text>
+              </g>
+              <g class="a pop" style="--d:8.5s">
+                <rect x="216" y="516" width="178" height="112" rx="10" fill="#0f2c47" stroke="#2b6a93"/>
+                <circle cx="248" cy="543" r="15" fill="none" stroke="#3fd0c9" stroke-width="2.5"/>
+                <path d="M248 534 V543 L255 547" fill="none" stroke="#3fd0c9" stroke-width="2.5" stroke-linecap="round"/>
+                <circle class="pulse" cx="262" cy="530" r="6" fill="#e5534b"/>
+                <text x="230" y="590" font-size="12.5" font-weight="700" fill="#e8f1f8">Steward for a Day</text>
+                <text x="230" y="607" font-size="10.5" fill="#9fb6c8">Work a shift of</text>
+                <text x="230" y="621" font-size="10.5" fill="#9fb6c8">live DQ alerts</text>
+              </g>
+
+              <!-- Packaging -->
+              <g class="a" style="--d:9.1s">
+                <text x="430" y="482" font-size="16" font-weight="700" fill="#fff">Self-paced web app</text>
+                <rect x="430" y="494" width="190" height="96" rx="10" fill="#0f2c47" stroke="#3fd0c9" stroke-width="2"/>
+                <rect x="444" y="503" width="9" height="9" fill="none" stroke="#3fd0c9" stroke-width="1.5"/>
+                <rect x="455" y="503" width="9" height="9" fill="none" stroke="#3fd0c9" stroke-width="1.5"/>
+                <text x="470" y="512" font-size="11.5" font-weight="700" fill="#3fd0c9">Docker container</text>
+                <rect x="444" y="522" width="162" height="26" rx="5" fill="#123f33" stroke="#4cc38a"/>
+                <text x="525" y="540" text-anchor="middle" font-size="12.5" font-weight="700" fill="#e8f1f8">Flask app</text>
+                <text x="525" y="572" text-anchor="middle" font-size="11" fill="#9fb6c8">Python · HTML / CSS / JS</text>
+              </g>
+              <g class="a" style="--d:9.5s">
+                <path class="flow" d="M624 540 H648" stroke="#3fd0c9" stroke-width="2.5" marker-end="url(#lhAh)"/>
+                <use href="#lhPerson" x="658" y="518" width="26" height="32" style="color:#7fb3e0"/>
+                <use href="#lhPerson" x="690" y="518" width="26" height="32" style="color:#3fd0c9"/>
+                <use href="#lhPerson" x="722" y="518" width="26" height="32" style="color:#f5c84c"/>
+                <text x="703" y="568" text-anchor="middle" font-size="11" fill="#e8f1f8">learners, at their</text>
+                <text x="703" y="582" text-anchor="middle" font-size="11" fill="#e8f1f8">own pace</text>
+                <path class="flow" d="M660 604 H808" stroke="#3fd0c9" stroke-width="3" marker-end="url(#lhAh)"/>
+              </g>
+
+              <!-- Result -->
+              <g class="a" style="--d:10s">
+                <text x="815" y="382" font-size="22" font-weight="700" fill="#4cc38a">Result</text>
+                <text x="815" y="404" font-size="12.5" fill="#e8f1f8">Learner progress, quiz results and feedback</text>
+                <text x="815" y="420" font-size="12.5" fill="#e8f1f8">feed engagement, mastery and reach dashboards</text>
+                <text x="815" y="436" font-size="12.5" fill="#e8f1f8">in the Data Quality Portal, so the program can</text>
+                <text x="815" y="452" font-size="12.5" fill="#e8f1f8">see <tspan fill="#f5c84c" font-weight="700">who is learning</tspan> and <tspan fill="#f5c84c" font-weight="700">where lessons need work</tspan>.</text>
+                <rect x="815" y="472" width="365" height="150" rx="10" fill="#0a1522" stroke="#9fb6c8" stroke-width="1.5"/>
+                <rect x="815" y="472" width="365" height="20" rx="10" fill="#22384d"/>
+                <rect x="815" y="482" width="365" height="10" fill="#22384d"/>
+                <circle cx="828" cy="482" r="3.5" fill="#e5534b"/><circle cx="840" cy="482" r="3.5" fill="#f5c84c"/><circle cx="852" cy="482" r="3.5" fill="#4cc38a"/>
+                <text x="997" y="486" text-anchor="middle" font-size="10.5" fill="#9fb6c8">Data Quality Portal</text>
+              </g>
+              <g class="a pop" style="--d:10.4s">
+                <rect x="826" y="500" width="110" height="112" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <text x="836" y="518" font-size="11" font-weight="700" fill="#e8f1f8">Engagement</text>
+                <line x1="836" y1="601" x2="926" y2="601" stroke="#2b6a93"/>
+              </g>
+              <rect class="grow" style="--d:10.8s" x="840" y="570" width="12" height="30" rx="2" fill="#3fd0c9"/>
+              <rect class="grow" style="--d:10.9s" x="857" y="554" width="12" height="46" rx="2" fill="#3fd0c9"/>
+              <rect class="grow" style="--d:11s" x="874" y="562" width="12" height="38" rx="2" fill="#3fd0c9"/>
+              <rect class="grow" style="--d:11.1s" x="891" y="542" width="12" height="58" rx="2" fill="#3fd0c9"/>
+              <rect class="grow" style="--d:11.2s" x="908" y="530" width="12" height="70" rx="2" fill="#3fd0c9"/>
+              <g class="a pop" style="--d:10.7s">
+                <rect x="942" y="500" width="110" height="112" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <text x="952" y="518" font-size="11" font-weight="700" fill="#e8f1f8">Mastery</text>
+                <circle cx="997" cy="565" r="26" fill="none" stroke="#22384d" stroke-width="9"/>
+                <text x="997" y="563" text-anchor="middle" font-size="9.5" fill="#9fb6c8">quiz</text>
+                <text x="997" y="575" text-anchor="middle" font-size="9.5" fill="#9fb6c8">results</text>
+              </g>
+              <path class="draw" style="--d:11.1s" pathLength="1" d="M997 539 A26 26 0 1 1 972.3 557" fill="none" stroke="#f5c84c" stroke-width="9" stroke-linecap="round"/>
+              <g class="a pop" style="--d:11s">
+                <rect x="1058" y="500" width="110" height="112" rx="7" fill="#10304d" stroke="#2b6a93"/>
+                <text x="1068" y="518" font-size="11" font-weight="700" fill="#e8f1f8">Reach</text>
+                <line x1="1068" y1="601" x2="1158" y2="601" stroke="#2b6a93"/>
+              </g>
+              <path class="draw" style="--d:11.4s" pathLength="1" d="M1070 594 L1088 584 L1106 588 L1124 566 L1142 552 L1156 534" fill="none" stroke="#4cc38a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="a pop" style="--d:12.6s" cx="1156" cy="534" r="5" fill="#4cc38a"/>
+
+              <!-- Footer -->
+              <g class="a" style="--d:12.4s">
+                <rect x="0" y="638" width="1200" height="52" fill="#0b2238"/>
+                <line x1="0" y1="638" x2="1200" y2="638" stroke="#2b6a93"/>
+                <text x="30" y="670" font-size="15" fill="#e8f1f8">Python / Flask  <tspan fill="#3fd0c9">·</tspan>  HTML / CSS / JavaScript  <tspan fill="#3fd0c9">·</tspan>  Docker  <tspan fill="#3fd0c9">·</tspan>  Instructional design</text>
+              </g>
+            </svg>
+            <button class="dq-replay" type="button">↻ Replay animation</button>
+            </div>
+            <figcaption>How the Learning Hub works, from the problem it solves to the dashboards it feeds.</figcaption>
+          </figure>
+        </article>
+
+        <article class="project">
+          <div>
+            <span class="tag">Migration · Testing</span>
+            <h3>Governance platform migration to IBM watsonx</h3>
+            <p class="muted">Moving rules and catalogue content from on-premises IBM InfoSphere to SaaS.</p>
+            <ul class="chips"><li>IBM watsonx.data intelligence</li><li>InfoSphere IGC</li><li>Synthetic test data</li></ul>
+          </div>
+          <dl>
+            <div><dt>Problem</dt><dd>Moving years of glossary content and DQ rules to a new platform without losing
+              trust in the results.</dd></div>
+            <div><dt>Approach</dt><dd>Led the migration of IGC content and DQ rules, and designed a parallel test
+              environment with synthetic source data and seeded history.</dd></div>
+            <div><dt>Result</dt><dd>Rules and alerts are validated before they reach production.</dd></div>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="learning" class="alt">
+    <div class="wrap">
+      <div class="eyebrow">AI-assisted learning</div>
+      <h2>Closing the gaps, on purpose</h2>
+      <p class="section-intro">The role asks for knowledge I'm still building, so I build learning tools for it.
+        I use AI to turn authoritative sources into structured study material, check it against those sources, and
+        drill it until it sticks. It's the same approach behind the DQ Learning Hub, pointed at forestry.</p>
+
+      <div class="learn-grid">
+        <div class="learn-card done">
+          <span class="pill shown" style="align-self:flex-start">Completed</span>
+          <h3>Fundamentals of Remote Sensing</h3>
+          <p>Natural Resources Canada's Canada Centre for Remote Sensing tutorial.</p>
+          <ul>
+            <li>Electromagnetic radiation and spectral signatures</li>
+            <li>Sensors, platforms and resolution</li>
+            <li>Radar and microwave sensing</li>
+            <li>Image interpretation and analysis</li>
+            <li>Applications, including forestry</li>
+          </ul>
+          <div class="foot"><a href="https://natural-resources.canada.ca/science-data/science-research/geomatics/remote-sensing/tutorial-fundamentals-remote-sensing" target="_blank" rel="noopener">NRCan tutorial ↗</a></div>
+        </div>
+
+        <div class="learn-card built">
+          <span class="pill building" style="align-self:flex-start">Built</span>
+          <h3>Forest ecology and tree identification</h3>
+          <p>A flashcard learning system for Ontario's trees and forests.</p>
+          <ul>
+            <li>Species identification and look-alikes: poplar and birch, spruce and balsam fir</li>
+            <li>Forest ecology and stand dynamics</li>
+          </ul>
+          <!-- TODO: replace with the repo / live link once the flashcard system is published -->
+          <div class="foot muted">Public repo and live version coming soon</div>
+        </div>
+
+        <div class="learn-card next">
+          <span class="pill learning" style="align-self:flex-start">Next</span>
+          <h3>Soils, landforms and environmental science</h3>
+          <p>The same system, extended to the site factors behind stand classification.</p>
+          <ul>
+            <li>Soil texture, moisture regime and drainage</li>
+            <li>Glacial landforms of northern Ontario</li>
+            <li>Ecosites and site productivity</li>
+          </ul>
+        </div>
+
+        <div class="learn-card next">
+          <span class="pill learning" style="align-self:flex-start">Next</span>
+          <h3>Forest inventory standards and QC</h3>
+          <p>Ontario's FRI standards, studied alongside the QC work I already do.</p>
+          <ul>
+            <li>FRI technical specifications and attributes</li>
+            <li>Species composition, age, height, crown closure</li>
+            <li>QA/QC audit procedures for deliverables</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="method" aria-label="How the learning system works">
+        <div><b>Source</b>Start from authoritative material: government tutorials, field guides, standards.</div>
+        <div><b>Structure</b>Use AI to draft cards and questions organised by topic and difficulty.</div>
+        <div><b>Verify</b>Check every card against the source before it goes into the deck.</div>
+        <div><b>Drill</b>Repeat until it sticks, and track what still needs work.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="eyebrow">Background</div>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">2013 – 2026</div>
+          <div><h3>Senior Data Quality Analyst · OLG</h3>
+            <p>Helped build Data Governance from the ground up, supported the move to IBM InfoSphere and a new
+              Cloudera data lake, then authored the enterprise DQ strategy and built its Python technical core.</p></div>
+        </div>
+        <div class="job">
+          <div class="when">2011 – 2013</div>
+          <div><h3>Environment Provisioning Analyst · OLG</h3>
+            <p>Led a multi-environment model for the Customer Hub (Siebel) master data project, and enabled SIT and
+              UAT for OLG's electronic bingo line of business.</p></div>
+        </div>
+        <div class="job">
+          <div class="when">2007 – 2011</div>
+          <div><h3>Quality Assurance Analyst and Voice Network Analyst · OLG</h3>
+            <p>Led an upgrade of defect management software for all testing teams, letting OLG retire a second
+              vendor's tool.</p></div>
+        </div>
+        <div class="job">
+          <div class="when">1995 – 2023</div>
+          <div><h3>Fire Chief (2012 – 2023) and Firefighter · Searchmont Community VFD</h3>
+            <p>Led a 21-person volunteer department with incident command at fire, rescue, hazmat and medical calls.
+              Coordinated with the Ministry of Natural Resources, the Office of the Fire Marshal, the OPP, paramedic
+              services and mutual aid partners. Secretary of the Algoma Mutual Aid Association (26 departments).</p></div>
+        </div>
+        <div class="job">
+          <div class="when">2006 – 2009</div>
+          <div><h3>B.Sc. Mathematics and Computer Science · Algoma University</h3>
+            <p>Graduated cum laude, with the Graduating Class Award of Excellence in Mathematics.</p></div>
+        </div>
+      </div>
+
+      <div class="skills">
+        <div class="skill"><h3>LiDAR and remote sensing</h3><ul>
+          <li>LAS 1.4 / LAZ point clouds (laspy)</li>
+          <li>DTM, height above ground, canopy height</li>
+          <li>Canopy cover and vertical structure metrics</li>
+          <li>Ontario classified point cloud, GeoHub tile indexes</li></ul></div>
+        <div class="skill"><h3>GIS and mapping</h3><ul>
+          <li>Leaflet web maps, GeoJSON, Esri basemaps</li>
+          <li>Shapely, pyproj, UTM / NAD83(CSRS)</li>
+          <li>Network routing, proximity and clustering</li>
+          <li>Ontario Road Network, building footprints</li></ul></div>
+        <div class="skill"><h3>Image analysis and ML</h3><ul>
+          <li>Detection, tracking and classification</li>
+          <li>Precision, recall, ground-truth matching</li>
+          <li>z-score anomaly and drift detection</li></ul></div>
+        <div class="skill"><h3>Programming and data</h3><ul>
+          <li>Python: NumPy, SciPy, Pandas, frameworks, pipelines</li>
+          <li>SQL: MS SQL Server, Sybase, DB2, Hive, Impala</li>
+          <li>Streamlit, Flask, Plotly, JavaScript</li>
+          <li>Cloudera, IBM watsonx, Power BI, Alteryx</li></ul></div>
+        <div class="skill"><h3>Fire service and training</h3><ul>
+          <li>IMS 100, NFPA 1021 Fire Officer I</li>
+          <li>NFPA 1041 Instructor, NFPA 1072 Hazmat</li>
+          <li>Ontario Fire College legislation courses</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-cta-section" aria-labelledby="map-cta-title">
+    <div class="wrap">
+      <div class="map-cta">
+        <div class="map-cta-text">
+          <div class="eyebrow">Live LiDAR demo</div>
+          <h2 id="map-cta-title">Explore the FireSmart LiDAR map</h2>
+          <p>Canopy height, canopy cover and ladder fuel measured from an airborne point cloud, scored house by house
+            against the FireSmart Home Ignition Zone.</p>
+          <p class="map-cta-tip">Try it: switch between <b>Zone 1</b> and <b>Zone 2</b>, turn on <b>Ladder fuel</b>,
+            then select a house to see its rings and recommendations.</p>
+          <a class="btn primary btn-lg" href="https://searchmont-analytics.github.io/smt-firesmart-assessment-lidar/" target="_blank" rel="noopener">Open the demo map ↗</a>
+        </div>
+        <a class="map-cta-preview" href="https://searchmont-analytics.github.io/smt-firesmart-assessment-lidar/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="img/firesmart-demo.png" alt="" loading="lazy" width="752" height="422" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--border)">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt contact">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <p>I'm interested in forest resources inventory, remote sensing and GIS roles with the Ministry of Natural
+        Resources in Sault Ste. Marie. References are available from the Ministry of Natural Resources (Fire Science
+        and Planning), paramedic services, the OPP and OLG.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:carrie.aiden.travis@gmail.com">Email me</a>
+        <a class="btn" href="https://travis-mccormack-analytics.com/" target="_blank" rel="noopener">Data quality &amp; fire analytics site ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Travis C.W. McCormack · Searchmont, Ontario</span>
+    <span>LiDAR: Ontario Classified Point Cloud, Open Government Licence – Ontario. Demo maps use synthetic data.</span>
+    <span class="privacy">Privacy: this site sets no cookies and does not identify or track individual visitors.</span>
+  </div>
+</footer>
+
+<script src="js/dq-anim.js?v=1"></script>
+</body>
+</html>

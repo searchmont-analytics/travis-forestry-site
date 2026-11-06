@@ -1,0 +1,60 @@
+/* Additions for the forestry analytics site. Loaded after styles.css. */
+
+.project-group { margin: 44px 0 16px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.project-group:first-of-type { margin-top: 0; }
+.project-group h3 { font-size: 1.05rem; margin: 0; }
+.project-group p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+/* Qualification matrix */
+.fit-table { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.fit-row { display: grid; grid-template-columns: 1.1fr 1.7fr 150px; gap: 18px; padding: 16px 20px; border-top: 1px solid var(--border); align-items: start; }
+.fit-row > div:last-child { display: flex; flex-wrap: wrap; gap: 6px; }
+.fit-row:first-child { border-top: 0; }
+.fit-row.head { background: var(--surface-2); padding-top: 10px; padding-bottom: 10px; }
+.fit-row.head span { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--muted); }
+.fit-row .req { font-weight: 700; font-size: .95rem; }
+.fit-row .req small { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.fit-row .ev { font-size: .93rem; color: var(--muted); }
+.fit-row .ev a { font-weight: 600; }
+.pill { display: inline-block; font-size: .74rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; letter-spacing: .02em; }
+.pill.shown { color: var(--pass); background: color-mix(in srgb, var(--pass) 14%, transparent); }
+.pill.building { color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 14%, transparent); }
+.pill.learning { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.fit-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 14px 0 0; font-size: .85rem; color: var(--muted); }
+.fit-legend span { display: inline-flex; align-items: center; gap: 8px; }
+@media (max-width: 760px) {
+  .fit-row { grid-template-columns: 1fr; gap: 6px; }
+  .fit-row.head { display: none; }
+}
+
+/* LiDAR metric bridge: pipeline output to inventory attribute */
+.bridge { display: grid; gap: 8px; margin-top: 6px; }
+.bridge div { display: grid; grid-template-columns: 1fr 18px 1fr; align-items: center; gap: 8px; font-size: .88rem; }
+.bridge b { font-weight: 700; padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); }
+.bridge span { padding: 6px 10px; border: 1px dashed var(--brand); border-radius: 8px; color: var(--brand); font-weight: 600; }
+.bridge i { font-style: normal; color: var(--muted); text-align: center; }
+
+/* Learning section */
+.learn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 900px) { .learn-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .learn-grid { grid-template-columns: 1fr; } }
+.learn-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.learn-card h3 { margin: 0; font-size: 1.05rem; }
+.learn-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+.learn-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .88rem; }
+.learn-card .foot { margin-top: auto; padding-top: 6px; font-size: .85rem; }
+.learn-card .foot a { font-weight: 700; }
+.learn-card.done { border-top: 4px solid var(--pass); }
+.learn-card.built { border-top: 4px solid var(--brand); }
+.learn-card.next { border-top: 4px solid var(--accent); }
+.method { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; counter-reset: m; }
+.method div { counter-increment: m; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: .9rem; color: var(--muted); }
+.method div::before { content: counter(m, decimal-leading-zero); display: block; color: var(--accent); font-weight: 800; font-size: .85rem; margin-bottom: 4px; }
+.method b { color: var(--text); display: block; margin-bottom: 2px; }
+@media (max-width: 760px) { .method { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .method { grid-template-columns: 1fr; } }
+
+.honest { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--accent-2); background: var(--surface); border-radius: 0 8px 8px 0; font-size: .93rem; color: var(--muted); max-width: 80ch; }
+.honest b { color: var(--text); }
+
+.shot.plain img { max-height: 520px; object-fit: contain; background: var(--surface-2); }
