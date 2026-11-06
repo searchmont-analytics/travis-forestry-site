@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4d3a'/%3E%3Cpath d='M16 4l-7 10h4l-5 7h5l-3 5h12l-3-5h5l-5-7h4z' fill='%23eef0ea'/%3E%3Crect x='14.5' y='25' width='3' height='4' fill='%23eef0ea'/%3E%3C/svg%3E">
   <!-- Bump ?v= whenever css or js changes, so browsers don't pair a new page with cached old files. -->
   <link rel="stylesheet" href="css/styles.css?v=1">
-  <link rel="stylesheet" href="css/forestry.css?v=4">
+  <link rel="stylesheet" href="css/forestry.css?v=5">
 </head>
 <body>
 
@@ -163,7 +163,7 @@
 
         <article class="project featured" id="p-lidar">
           <div>
-            <div class="hiz-badge" role="img" aria-label="Home Ignition Zone assessment badge: a house with a flame, inside rings at 1.5, 10 and 30 metres">
+            <div class="proj-badge hiz-badge" role="img" aria-label="Home Ignition Zone assessment badge: a house with a flame, inside rings at 10 and 30 metres">
               <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
                 <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".45"/>
                 <circle cx="32" cy="32" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".7"/>
@@ -173,7 +173,7 @@
               </svg>
               <div>
                 <strong>Home Ignition Zone assessment</strong>
-                <span>Rings at 0–1.5 m · 1.5–10 m · 10–30 m</span>
+                <span>Rings at 1.5–10 m · 10–30 m</span>
               </div>
             </div>
             <span class="tag">LiDAR · Point cloud analysis · Personal project</span>
@@ -181,7 +181,7 @@
             <p class="muted">Scores every house in an airborne LiDAR tile against the FireSmart Home Ignition Zone,
               using canopy and ladder fuel measured directly from the point cloud.</p>
             <p class="cite-note">Scoring follows the <a href="https://firesmartcanada.ca/" target="_blank" rel="noopener">FireSmart Canada</a>
-              Home Ignition Zone guidance (0–1.5 m, 1.5–10 m, 10–30 m around the home). This is an independent
+              Home Ignition Zone guidance, measured in the 1.5–10 m and 10–30 m zones around the home. This is an independent
               project, not affiliated with or endorsed by FireSmart Canada.</p>
             <ul class="chips"><li>Python</li><li>laspy / LAZ</li><li>NumPy · SciPy</li><li>Shapely · pyproj</li><li>Ontario classified point cloud</li><li>YAML config</li><li>Leaflet</li></ul>
             <div class="cta">
@@ -224,7 +224,22 @@
 
         <article class="project featured" id="p-water">
           <div>
-            <span class="tag">GIS · Network analysis · Personal project</span>
+            <div class="proj-badge water-badge" role="img" aria-label="Rural water supply atlas badge: a water drop over a hydrant, joined to a house by a road route">
+              <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <path d="M14 46 C22 46 22 34 32 34 S42 22 50 22" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3" stroke-linecap="round" opacity=".8"/>
+                <path d="M45 24 L50 19.5 L55 24 V29 H45 Z" fill="var(--surface)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <rect x="11" y="40" width="6" height="11" rx="1.5" fill="#d6453d"/>
+                <rect x="9" y="43" width="10" height="2.6" rx="1.3" fill="#d6453d"/>
+                <path d="M11 40 a3 3 0 0 1 6 0 Z" fill="#d6453d"/>
+                <path d="M32 12 C32 12 25 20.5 25 25 a7 7 0 0 0 14 0 C39 20.5 32 12 32 12 Z" class="water-drop"/>
+              </svg>
+              <div>
+                <strong>Rural water supply atlas</strong>
+                <span>Built with the Searchmont Fire Department</span>
+              </div>
+            </div>
+            <span class="tag">GIS · Network analysis · Searchmont Fire Department</span>
             <h3>Searchmont water source evaluation atlas</h3>
             <p class="muted">An interactive map for planning rural firefighting water supply in the Searchmont
               Fire Department response area, north of Sault Ste. Marie.</p>
